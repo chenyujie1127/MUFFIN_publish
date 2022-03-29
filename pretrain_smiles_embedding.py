@@ -137,7 +137,7 @@ if __name__ == '__main__':
     if args['format'] == 'txt':
         smiles = load_smiles_from_txt(args['file'])
     else:
-        df = pd.read_csv(args['file'])
+        df = pd.read_csv(args['file'],sep='\t',names=[args['smiles_column']])
         smiles = df[args['smiles_column']].tolist()
         
     print(len(smiles))
